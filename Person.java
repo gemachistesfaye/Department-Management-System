@@ -1,52 +1,67 @@
 package project1;
 
-public class Person implements Department {
 
-    protected int id, age;
-    protected String name, sex, departmentName, course;
-    protected Address address;
+public abstract class Person implements Displayable {
 
-    // Constructor
+    // ─── Private Fields ───────────────────────────────────────────────────────────
+    private int    id;
+    private int    age;
+    private String name;
+    private String sex;
+    private String departmentName;
+    private String course;
+    private Address address;
+
+    // ─── Constructor ─────────────────────────────────────────────────────────────
+
     public Person(int id, String name, String sex, int age,
                   String departmentName, Address address, String course) {
-        this.id = id;
-        this.name = name;
-        this.sex = sex;
-        this.age = age;
+        this.id             = id;
+        this.name           = name;
+        this.sex            = sex;
+        this.age            = age;
         this.departmentName = departmentName;
-        this.address = address;
-        this.course = course;
+        this.address        = address;
+        this.course         = course;
     }
 
-    // Getter for ID - Vital for the search logic in Case 4
-    public int getId() {
-        return id;
-    }
+    // ─── Getters ─────────────────────────────────────────────────────────────────
 
-    // Interface method implementation
+    public int     getId()             { return id; }
+    public int     getAge()            { return age; }
+    public String  getName()           { return name; }
+    public String  getSex()            { return sex; }
+    public String  getDepartmentName() { return departmentName; }
+    public String  getCourse()         { return course; }
+    public Address getAddress()        { return address; }
+
+    // ─── Displayable Implementation ───────────────────────────────────────────────
+
+   
     @Override
     public void displayCourse(String courseName, String instructorName) {
         System.out.println("\n----------------------------");
-        System.out.println("Course Details");
+        System.out.println("       Course Details        ");
         System.out.println("----------------------------");
-        System.out.println("Course Name     : " + courseName);
-        System.out.println("Instructor Name : " + instructorName);
+        System.out.println("Course Name  : " + courseName);
+        System.out.println("Instructor   : " + instructorName);
         System.out.println("----------------------------");
     }
 
-    // Display person info (Refined for cleaner output)
-    public void displayPerson() {
-        System.out.println("ID         : " + id);
-        System.out.println("Name       : " + name);
-        System.out.println("Sex        : " + sex);
-        System.out.println("Age        : " + age);
-        System.out.println("Department : " + departmentName);
-        System.out.println("City       : " + address.getCity());
-        System.out.println("Course     : " + course);
-    }
+    
+    @Override
+    public abstract void displayInfo();
 
-    // Placeholder for Override in Student class
-    public void displayStudent() {
-        System.out.println("Base Student Information (from Person class)");
+    // ─── Shared Display Helper ────────────────────────────────────────────────────
+
+    
+    protected void displayPersonFields() {
+        System.out.println("ID           : " + id);
+        System.out.println("Name         : " + name);
+        System.out.println("Sex          : " + sex);
+        System.out.println("Age          : " + age);
+        System.out.println("Department   : " + departmentName);
+        System.out.println("Address      : " + address);   
+        System.out.println("Course       : " + course);
     }
 }
