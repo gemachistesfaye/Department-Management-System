@@ -3,26 +3,53 @@ package project1;
 public class Address {
 
     private String city;
+    private String region;
+    private String country;
 
-    // Constructor
+    // ─── Constructor ────────────────────────────────────────────────────────────
+
+    public Address(String city, String region, String country) {
+        this.city    = isValid(city)    ? city.trim()    : "Unknown City";
+        this.region  = isValid(region)  ? region.trim()  : "Unknown Region";
+        this.country = isValid(country) ? country.trim() : "Unknown Country";
+    }
+
+    // Convenience constructor for backward-compatible single-city usage
     public Address(String city) {
-        // Basic validation: default to "N/A" if input is empty or null
-        if (city == null || city.trim().isEmpty()) {
-            this.city = "Unknown City";
-        } else {
-            this.city = city;
-        }
+        this(city, "N/A", "N/A");
     }
 
-    // Getter method
-    public String getCity() {
-        return city;
+    // ─── Validation Helper ───────────────────────────────────────────────────────
+
+    private boolean isValid(String value) {
+        return value != null && !value.trim().isEmpty();
     }
 
-    // Setter method
+    // ─── Getters ─────────────────────────────────────────────────────────────────
+
+    public String getCity()    { return city; }
+    public String getRegion()  { return region; }
+    public String getCountry() { return country; }
+
+    // ─── Setters ─────────────────────────────────────────────────────────────────
+
     public void setCity(String city) {
-        if (city != null && !city.trim().isEmpty()) {
-            this.city = city;
-        }
+        if (isValid(city)) this.city = city.trim();
+    }
+
+    public void setRegion(String region) {
+        if (isValid(region)) this.region = region.trim();
+    }
+
+    public void setCountry(String country) {
+        if (isValid(country)) this.country = country.trim();
+    }
+
+    // ─── toString ────────────────────────────────────────────────────────────────
+
+   
+    @Override
+    public String toString() {
+        return city + ", " + region + ", " + country;
     }
 }
