@@ -1,6 +1,6 @@
 # 🎓 Department Management System (Java OOP)
 
-> **v2.0** — Refactored with professional OOP structure: abstract classes, proper encapsulation, Teacher class, input validation utility, and expanded address model.
+> **v2.0** — Refactored with professional OOP structure: abstract classes, proper encapsulation, Teacher class, input validation utility and expanded address model.
 
 ![Java](https://img.shields.io/badge/Java-JDK%208%2B-orange?style=flat-square&logo=java)
 ![OOP](https://img.shields.io/badge/Paradigm-OOP-blue?style=flat-square)
@@ -11,9 +11,9 @@
 
 ## 📌 Overview
 
-The **Department Management System** is a console-based Java application built using Object-Oriented Programming (OOP) principles. It simulates an academic management system for handling students, teachers, courses, and grade evaluation in a structured and scalable way.
+The **Department Management System** is a console-based Java application built using Object-Oriented Programming (OOP) principles. It simulates an academic management system for handling students, teachers, courses and grade evaluation in a structured and scalable way.
 
-This project demonstrates real-world system modeling using clean architecture and core Java concepts.
+This project demonstrates real-world system modeling using clean architecture  core Java concepts.
 
 ---
 
